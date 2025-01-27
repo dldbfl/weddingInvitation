@@ -178,23 +178,6 @@ setInterval(calculateTime, 1000);
 calculateTime();
 
 
-// 카카오톡 공유하기 기능
-// Kakao.init("YOUR_APP_KEY"); // 카카오 앱 키 입력
-// document.getElementById("share-kakao").addEventListener("click", function () {
-//     Kakao.Share.sendDefault({
-//         objectType: "feed",
-//         content: {
-//             title: "우리 결혼합니다!",
-//             description: "2025년 2월 22일, 많은 축복 부탁드립니다!",
-//             imageUrl: "https://example.com/large-photo.jpg",
-//             link: {
-//                 mobileWebUrl: "https://example.com",
-//                 webUrl: "https://example.com",
-//             },
-//         },
-//     });
-// });
-
 // 캔버스 꽃잎 애니메이션
 const canvas = document.querySelector("canvas");
 const ctx = canvas.getContext("2d");
@@ -430,8 +413,8 @@ document.getElementById("send-kakao-invite").addEventListener("click", function 
     Kakao.Link.sendDefault({
         objectType: "feed", // 카톡 메시지 타입: 피드형
       content: {
-            title: "모바일 청첩장", // 제목
-            description: "카톡태그 누리와 보라미의 결혼을 축하해주세요! 청첩장을 확인해보세요!", // 설명
+            title: "이누리 ♥ 정보람의 결혼알림장입니다.", // 제목
+            description: "누리와 보람이의 결혼을 축하해주세요!", // 설명
             imageUrl: "https://dldbfl.github.io/weddingInvitation/images/thumbnail_kakao.jpg", // 청첩장 이미지 URL
           link: {
                 mobileWebUrl: "https://dldbfl.github.io/weddingInvitation/", // 모바일 웹 청첩장 링크
