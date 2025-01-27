@@ -396,7 +396,7 @@ document.getElementById("send-kakao-invite").addEventListener("click", function 
         content: {
             title: "모바일 청첩장", // 제목
             description: "누리와 보라미의 결혼을 축하해주세요! 청첩장을 확인해보세요!", // 설명
-            imageUrl: "https://dldbfl.github.io/weddingInvitation/images/JYS_5815%20%EB%A7%88%ED%8A%B84-1.jpg", // 청첩장 이미지 URL
+            imageUrl: "https://dldbfl.github.io/weddingInvitation/images/thumnail.jpg", // 청첩장 이미지 URL
             link: {
                 mobileWebUrl: "https://dldbfl.github.io/weddingInvitation/", // 모바일 웹 청첩장 링크
                 webUrl: "https://dldbfl.github.io/weddingInvitation/", // 웹 청첩장 링크
@@ -411,5 +411,16 @@ document.getElementById("send-kakao-invite").addEventListener("click", function 
                 },
             },
         ],
+    });
+});
+
+const sharedUrl = "https://dldbfl.github.io/weddingInvitation/"; // 청첩장 URL
+
+document.getElementById("copy-url-button").addEventListener("click", function () {
+    // 클립보드에 URL 복사
+    navigator.clipboard.writeText(sharedUrl).then(() => {
+        alert("청첩장 URL이 복사되었습니다! 문자로 공유해보세요.");
+    }).catch(err => {
+        console.error("URL 복사 실패: ", err);
     });
 });

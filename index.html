@@ -10,7 +10,13 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
-    
+
+    <!-- 오픈 그래프 메타 태그 -->
+    <meta property="og:title" content="모바일 청첩장">
+    <meta property="og:description" content="누리와 보라미의 결혼을 축하해주세요! 청첩장을 확인해보세요!">
+    <meta property="og:image" content="https://dldbfl.github.io/weddingInvitation/images/thumnail.jpg"> <!-- 이미지 URL -->
+    <meta property="og:url" content="https://yourwebsite.com/weddingInvitation/"> <!-- 청첩장 URL -->
+    <meta property="og:type" content="website">    
 </head>
 <body>
     <!-- 최상단에 음악 토글용 히든 섹션 추가 -->
@@ -292,7 +298,13 @@
     <section id="last-section">
         <div class="kakao-share-container">
             <button class="kakao-share-button send-button" id="send-kakao-invite">
-                카카오톡으로 청첩장 공유하기
+                청첩장 카카오톡으로 공유하기
+                <span class="arrow">➔</span>
+            </button>
+        </div>
+        <div class="url-copy-container">
+            <button class="url-copy-button" id="copy-url-button">
+                청첩장 링크 복사하기
                 <span class="arrow">➔</span>
             </button>
         </div>

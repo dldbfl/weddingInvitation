@@ -716,3 +716,42 @@ button {
 .kakao-share-button:hover .arrow {
     transform: translateX(5px);
 }
+.url-copy-container {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.url-copy-button {
+  background-color: #4caf50; /* 초록색 배경 */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 25px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  width: 80%;
+  max-width: 400px;
+}
+
+.url-copy-button:hover {
+  background-color: #45a049;
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+.url-copy-button .arrow {
+  font-size: 18px;
+  color: white;
+  transform: translateX(0);
+  transition: transform 0.3s ease;
+}
+
+.url-copy-button:hover .arrow {
+  transform: translateX(5px);
+}
