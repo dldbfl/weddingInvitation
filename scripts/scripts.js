@@ -431,8 +431,8 @@ document.getElementById("send-kakao-invite").addEventListener("click", function 
         objectType: "feed", // 카톡 메시지 타입: 피드형
       content: {
             title: "모바일 청첩장", // 제목
-            description: "누리와 보라미의 결혼을 축하해주세요! 청첩장을 확인해보세요!", // 설명
-            imageUrl: "https://dldbfl.github.io/weddingInvitation/images/thumbnail.jpg", // 청첩장 이미지 URL
+            description: "카톡태그 누리와 보라미의 결혼을 축하해주세요! 청첩장을 확인해보세요!", // 설명
+            imageUrl: "https://dldbfl.github.io/weddingInvitation/images/thumbnail_kakao.jpg", // 청첩장 이미지 URL
           link: {
                 mobileWebUrl: "https://dldbfl.github.io/weddingInvitation/", // 모바일 웹 청첩장 링크
                 webUrl: "https://dldbfl.github.io/weddingInvitation/", // 웹 청첩장 링크
