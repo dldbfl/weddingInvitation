@@ -22,67 +22,97 @@
     <!-- 최상단에 음악 토글용 히든 섹션 추가 -->
     <section id="hidden-music-control" class="hidden-section">
         <button id="music-toggle" class="music-toggle">
-            <div id="lottie-animation" class="lottie-container"></div>
+            <img src="images/play-volume.svg" id="music-icon" alt="음악 재생/정지 이미지" />
         </button>
         <audio id="background-music" loop>
-            <source src="audio/Libertango.mp3" type="audio/mpeg">
+            <source src="audio/No.1 A Minor Waltz - Esther Abrami.mp3" type="audio/mpeg">
             Your browser does not support the audio element.
         </audio>
     </section>
+    
+    <div id="overlay">
+        <div class="typing-effect"><span id="typed-text"></span></div>
+    </div>
 
     <!-- 첫장 흔들리는 꽃들속에 샴푸향 뭐시기 세션 -->
     <section id="intro" class="intro-section">
         <div class="intro">
-            <h1>LEE NURI & BORAMIKKONG</h1>
+            <h1>NURI & BORAM</h1>
             <div class="divider"></div>
-            <p>좋은날 좋은순간</p>
-            <p>저기 멀리</p>
             <div class="canvas-container">
-                <img src="images/JYS_5815 마트4-1.jpg" alt="배경 이미지">
+                <img src="images/intro.jpg" alt="배경 이미지">
                 <canvas></canvas>
+            </div>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <img src="images/rose-flower-line.png" id="flower-icon" alt="꽃 이미지" style="width: 30%;" />
+            <br/>
+            <br/>
+            <br/>
+            <div class="thanksTo">
+                <p>처음 손을 맞잡았던 그 날,</p>
+                <p>설렘 속에서 시작된 우리의 이야기는</p>
+                <p>어느새 다섯 번째 겨울을 맞이하게 되었습니다.</p>
+                <br/>
+                <p>지금 이 순간,</p>
+                <p>평생을 함께할 약속을 마음에 담아</p>
+                <p>가족들과 함께 감사의 시간을 나누며</p>
+                <p>이 날을 특별한 추억으로 남기고자 합니다.</p>
+                <br/>
+                <p>따뜻한 사랑과 격려로</p>
+                <p>저희를 지켜봐 주신 분들께</p>
+                <p>진심으로 감사드리며,</p>
+                <p>앞으로도 서로를 믿고 의지하며</p>
+                <p>함께 걸어가겠습니다.</p>
             </div>
         </div>
     </section>
-
-
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
     <!-- 날짜 공지 섹션 -->
     <section id="date-announcement" class="date-announcement-section">
         <div id="date-text" class="date-text">
           <!-- 첫 번째 줄 -->
           <div class="flex justify-center items-center gap-5">
-            <span class="reveal-text" style="color: palevioletred;">2</span>
-            <span class="reveal-text">.&nbsp;</span>
-            <span class="reveal-text" style="color: palevioletred;">2</span>
-            <span class="reveal-text">5</span>
-            <span class="reveal-text">.</span>
+            <span class="reveal-text" style="color: palevioletred;">W</span>
+            <span class="reveal-text">e</span>
+            <span class="reveal-text" style="color: palevioletred;">d</span>
+            <span class="reveal-text">d</span>
+            <span class="reveal-text" style="color: palevioletred;">i</span>
+            <span class="reveal-text">n</span>
+            <span class="reveal-text" style="color: palevioletred;">g</span>
           </div>
           <!-- 두 번째 줄 -->
           <div class="flex justify-center items-center gap-5">
-            <span class="reveal-text" style="color: palevioletred;">2</span>
-            <span class="reveal-text">0</span>
-            <span class="reveal-text" style="color: palevioletred;">2</span>
-            <span class="reveal-text">5</span>
-            <span class="reveal-text">.</span>
+            <span class="reveal-text" style="color: palevioletred;">D</span>
+            <span class="reveal-text">a</span>
+            <span class="reveal-text" style="color: palevioletred;">y</span>
           </div>
         </div>
       </section>
 
     <!-- 달력 섹션 (카운트 섹션) -->
     <section class="calendar-section">
-        <h2 class="calendar-title">Wedding Day</h2>
-        <p id="calender-first-word" class="calendar-date" >2025년 2월 25일 화요일</p>
-        <p id="calender-second-word" class="calendar-date" >Tuesday, February 25, 2025 </p>
+        <!--<h2 class="calendar-title">Wedding Day</h2>-->
+        <p id="calender-first-word" class="calendar-date">2025년 2월 25일 화요일</p>
+        <p id="calender-second-word" class="calendar-date" style="margin-top: -26px; margin-bottom: 1%;">Tuesday, February 25, 2025 </p>
         <hr class="calendar-line" />
         <table class="calendar-table">
           <thead>
-            <tr>
-              <th style="color: red;">일</th>
+            <tr class="dayOfTheWeekTr">
+              <th style="color: rgb(255, 138, 152);">일</th>
               <th>월</th>
               <th>화</th>
               <th>수</th>
               <th>목</th>
               <th>금</th>
-              <th style="color: blue;">토</th>
+              <th>토</th>
             </tr>
           </thead>
           <tbody>
@@ -96,7 +126,7 @@
               <td>1</td>
             </tr>
             <tr>
-              <td>2</td>
+              <td style="color: rgb(255, 138, 152);">2</td>
               <td>3</td>
               <td>4</td>
               <td>5</td>
@@ -105,7 +135,7 @@
               <td>8</td>
             </tr>
             <tr>
-              <td>9</td>
+              <td style="color: rgb(255, 138, 152);">9</td>
               <td>10</td>
               <td>11</td>
               <td>12</td>
@@ -114,7 +144,7 @@
               <td>15</td>
             </tr>
             <tr>
-              <td>16</td>
+              <td style="color: rgb(255, 138, 152);">16</td>
               <td>17</td>
               <td>18</td>
               <td>19</td>
@@ -123,7 +153,7 @@
               <td>22</td>
             </tr>
             <tr>
-              <td>23</td>
+              <td style="color: rgb(255, 138, 152);">23</td>
               <td>24</td>
               <td class="highlight">25</td>
               <td>26</td>
@@ -143,10 +173,9 @@
 
     <!-- 연락하기 섹션 -->
     <section class="contact-section">
-        <h2 style="font-family: 'sehwa'; font-size: 2.8em;">연락처 확인하기</h2>
         <div class="family-box groom" id="groom-box">
             <div class="family-row">
-                <p><strong>이기호 · 이명숙</strong> <span class="relation">의 아들</span></p>
+                <p><strong>이기호·이명숙</strong>의 아들</p>
                 <p><span class="role">신랑</span> <span class="name">이누리</span></p>
                 <!-- 축하 연락하기 버튼 -->
                 <div class="contact-button-container">
@@ -159,7 +188,7 @@
         </div>
         <div class="family-box bride" id="bride-box">
             <div class="family-row">
-                <p><strong>임성희</strong> <span class="relation">의 딸</span></p>
+                <p><strong>임성희</strong>의 딸</p>
                 <p><span class="role">신부</span> <span class="name">정보람</span></p>
                 <!-- 축하 연락하기 버튼 -->
                 <div class="contact-button-container">
@@ -180,39 +209,43 @@
             </div>
         </div>
     </section>
-
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
     <section id="gallery">
         <h2 class="gallery-title">Gallery</h2>
         <div class="swiper">
             <div class="swiper-wrapper">
-                <div class="swiper-slide"><img src="images/JYS_6207-1.jpg" alt="Photo 1"></div>
-                <div class="swiper-slide"><img src="images/JYS_6381-1.jpg" alt="Photo 2"></div>
-                <div class="swiper-slide"><img src="images/JYS_5815 마트4-1.jpg" alt="Photo 3"></div>
-                <div class="swiper-slide"><img src="images/JYS_6547-1.jpg" alt="Photo 4"></div>
-            <div class="swiper-slide"><img src="images/JYS_6572-1.jpg" alt="Photo 5"></div>
-            <div class="swiper-slide"><img src="images/JYS_6580-1.jpg" alt="Photo 6"></div>
-            <div class="swiper-slide"><img src="images/JYS_6658-1.jpg" alt="Photo 7"></div>
-            <div class="swiper-slide"><img src="images/JYS_7091-1 q.jpg" alt="Photo 8"></div>
-            <div class="swiper-slide"><img src="images/JYS_7015-1.jpg" alt="Photo 9"></div>
-            <div class="swiper-slide"><img src="images/JYS_6396-1 q.jpg" alt="Photo 10"></div>
-        </div>
-        <div class="custom-pagination">
-            <button class="prev-slide">&lt;</button>
-            <span id="current-slide">1</span> / <span id="total-slides">5</span>
-            <button class="next-slide">&gt;</button>
-        </div>
+                <div class="swiper-slide"><img src="images/gallery_1.jpg" alt="Photo 1"></div>
+                <div class="swiper-slide"><img src="images/gallery_2.jpg" alt="Photo 2"></div>
+                <div class="swiper-slide"><img src="images/gallery_3.jpg" alt="Photo 3"></div>
+                <div class="swiper-slide"><img src="images/gallery_4.jpg" alt="Photo 4"></div>
+                <div class="swiper-slide"><img src="images/gallery_5.jpg" alt="Photo 5"></div>
+                <div class="swiper-slide"><img src="images/gallery_6.jpg" alt="Photo 6"></div>
+                <div class="swiper-slide"><img src="images/gallery_7.jpg" alt="Photo 7"></div>
+                <div class="swiper-slide"><img src="images/gallery_8.jpg" alt="Photo 8"></div>
+                <div class="swiper-slide"><img src="images/gallery_9.jpg" alt="Photo 9"></div>
+                <div class="swiper-slide"><img src="images/gallery_10.jpg" alt="Photo 10"></div>
+            </div>
+            <div class="custom-pagination">
+                <button class="prev-slide">&lt;</button>
+                <span id="current-slide">1</span> / <span id="total-slides">5</span>
+                <button class="next-slide">&gt;</button>
+            </div>
         </div>
         <div class="thumbnail-grid">
-            <img src="images/JYS_6207-1.jpg" alt="Thumbnail 1" data-index="0">
-            <img src="images/JYS_6381-1.jpg" alt="Thumbnail 2" data-index="1">
-            <img src="images/JYS_5815 마트4-1.jpg" alt="Thumbnail 3" data-index="2">
-            <img src="images/JYS_6547-1.jpg" alt="Thumbnail 4" data-index="3">
-            <img src="images/JYS_6572-1.jpg" alt="Thumbnail 5" data-index="4">
-            <img src="images/JYS_6580-1.jpg" alt="Thumbnail 6" data-index="5">
-            <img src="images/JYS_6658-1.jpg" alt="Thumbnail 7" data-index="6">
-            <img src="images/JYS_7091-1 q.jpg" alt="Thumbnail 8" data-index="7">
-            <img src="images/JYS_7015-1.jpg" alt="Thumbnail 9" data-index="8">
-            <img src="images/JYS_6396-1 q.jpg" alt="Thumbnail 10" data-index="9">
+            <img src="images/gallery_1.jpg" alt="Thumbnail 1" data-index="0">
+            <img src="images/gallery_2.jpg" alt="Thumbnail 2" data-index="1">
+            <img src="images/gallery_3.jpg" alt="Thumbnail 3" data-index="2">
+            <img src="images/gallery_4.jpg" alt="Thumbnail 4" data-index="3">
+            <img src="images/gallery_5.jpg" alt="Thumbnail 5" data-index="4">
+            <img src="images/gallery_6.jpg" alt="Thumbnail 6" data-index="5">
+            <img src="images/gallery_7.jpg" alt="Thumbnail 7" data-index="6">
+            <img src="images/gallery_8.jpg" alt="Thumbnail 8" data-index="7">
+            <img src="images/gallery_9.jpg" alt="Thumbnail 9" data-index="8">
+            <img src="images/gallery_10.jpg" alt="Thumbnail 10" data-index="9">
         </div>
     </section>
 

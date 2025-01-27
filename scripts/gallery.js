@@ -2,9 +2,10 @@
 const swiper = new Swiper(".swiper", {
     slidesPerView: 1,
     spaceBetween: 10,
+    centeredSlides: true,
     on: {
         slideChange: updatePagination,
-    },
+    }
 });
 
 const currentSlide = document.getElementById("current-slide");
@@ -27,5 +28,5 @@ document.querySelector(".next-slide").addEventListener("click", () => swiper.sli
 thumbnails.forEach((thumbnail, index) => {
     thumbnail.addEventListener("click", () => {
         swiper.slideTo(index);
-});
+    });
 });

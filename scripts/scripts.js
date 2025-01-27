@@ -1,4 +1,90 @@
-// 카운트다운 업데이트 함수
+document.addEventListener("DOMContentLoaded", function () {
+    const messages = [
+        "따뜻한 마음으로",
+        "저희를 축복해 주신",
+        "모든 분들께 감사드리며,", 
+        "앞으로도 늘 행복과 평안이",
+        "함께하시길 바랍니다.",
+        "from 누리, 보람."
+    ];
+
+    const typingSpeed = 80; // 타이핑 속도 (ms)
+    const delayBetweenMessages = 300; // 메시지 간 대기 시간 (ms)
+    const fadeOutDuration = 2000; // 페이드아웃 시간 (ms)
+
+    let messageIndex = 0;
+    let charIndex = 0;
+    const typedTextElement = document.getElementById("typed-text");
+    const overlayElement = document.getElementById("overlay");
+
+    function typeMessage() {
+        if (charIndex < messages[messageIndex].length) {
+            typedTextElement.textContent += messages[messageIndex].charAt(charIndex);
+            charIndex++;
+            setTimeout(typeMessage, typingSpeed);
+        } else {
+            messageIndex++;
+            charIndex = 0;
+            if (messageIndex < messages.length) {
+                setTimeout(() => {
+                    typedTextElement.textContent += "\n"; // 줄바꿈 추가
+                    typeMessage();
+                }, delayBetweenMessages);
+            } else {
+                // 마지막 메시지가 출력된 후 페이드아웃 실행
+                setTimeout(() => {
+                    overlayElement.style.opacity = "0"; // 투명하게 만들기
+                    setTimeout(() => {
+                        overlayElement.style.display = "none"; // 화면에서 완전히 제거
+                    }, fadeOutDuration);
+                }, 1000); // 메시지 출력 완료 후 대기 시간
+            }
+        }
+    }
+
+    function fadeOutOverlay() {
+        overlayElement.style.opacity = "0"; // 투명하게 만들기
+        setTimeout(() => {
+            overlayElement.style.display = "none"; // 요소 숨기기
+        }, fadeOutDuration);
+    }
+
+    // 타이핑 시작
+    typeMessage();
+
+    /** 음악 기능 추가 **/
+    const musicToggleButton = document.getElementById("music-toggle");
+    const audio = document.getElementById("background-music");
+
+    let isPlaying = true; // 초기 음악 재생 상태
+
+    // 초기 상태: animation_music.json + 음악 재생
+    document.getElementById("music-icon").src = "images/volume.svg";
+
+    setTimeout(() => {
+        audio.play();
+    }, 10000);
+  
+    // 버튼 클릭 이벤트
+    musicToggleButton.addEventListener("click", () => {
+      if (isPlaying) {
+        // 음악 정지 및 music_start.json으로 전환
+        audio.pause();
+        document.getElementById("music-icon").src = "images/volume-slash.svg";
+        //loadLottieAnimation("./animations/music_start.json", false); // 한번만 재생
+        isPlaying = false;
+      } else {
+        // 음악 재생 및 animation_music.json으로 전환
+        audio.play();
+        document.getElementById("music-icon").src = "images/volume.svg";
+        //loadLottieAnimation("./animations/animation_music.json");
+        isPlaying = true;
+      }
+    });
+    /** 음악 기능 종료 **/
+});
+
+// 카운트다운 기능
 function calculateTime() {
   const weddingDate = new Date("2025-02-25T00:00:00");
   const now = new Date();
@@ -17,24 +103,18 @@ function calculateTime() {
     countdownContainer.innerHTML = `
       <div class="countdown-box">
         <div class="countdown-value">${days}</div>
-        <div class="countdown-label">일</div>
-      </div>
-      <div class="countdown-box">
+        <div class="countdown-label">일&nbsp;</div>
         <div class="countdown-value">${hours}</div>
-        <div class="countdown-label">시간</div>
-      </div>
-      <div class="countdown-box">
+        <div class="countdown-label">시간&nbsp;</div>
         <div class="countdown-value">${minutes}</div>
-        <div class="countdown-label">분</div>
-      </div>
-      <div class="countdown-box">
+        <div class="countdown-label">분&nbsp;</div>
         <div class="countdown-value">${seconds}</div>
         <div class="countdown-label">초</div>
       </div>
     `;
 
     countdownMessage.innerHTML = `
-      누리<span style="color: gold;">★</span>보람 결혼이 <strong>${days}</strong>일 남았습니다!
+      누리<span style="color: pink; font-size: 2.5rem;">&nbsp;♥&nbsp;</span>보람 결혼이 <strong>${days}</strong>일 남았습니다!
     `;
 
   } else {
@@ -135,8 +215,8 @@ class Petal {
     constructor() {
         this.x = Math.random() * canvas.width;
         this.y = Math.random() * canvas.height;
-        this.size = Math.random() * 4 + 2;
-        this.speed = Math.random() * 2 + 1;
+        this.size = Math.random() * 3 + 1;
+        this.speed = Math.random() * 0.8 + 0.2;
         this.angle = Math.random() * Math.PI * 2;
     }
 
@@ -157,7 +237,7 @@ class Petal {
     }
 }
 
-for (let i = 0; i < 50; i++) petals.push(new Petal());
+for (let i = 0; i < 160; i++) petals.push(new Petal());
 
 function animate() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -169,50 +249,6 @@ function animate() {
 }
 
 animate();
-
-/** 음악 기능 추가 **/
-document.addEventListener("DOMContentLoaded", () => {
-    const musicToggleButton = document.getElementById("music-toggle");
-    const audio = document.getElementById("background-music");
-    const lottieContainer = document.getElementById("lottie-animation");
-  
-    let isPlaying = true; // 초기 음악 재생 상태
-    let lottieInstance;
-  
-    // 애니메이션 로드 함수
-    const loadLottieAnimation = (path, loop = true) => {
-      if (lottieInstance) {
-        lottieInstance.destroy(); // 기존 애니메이션 제거
-      }
-      lottieInstance = lottie.loadAnimation({
-        container: lottieContainer,
-        renderer: "svg",
-        loop: loop,
-        autoplay: true,
-        path: path,
-      });
-    };
-  
-    // 초기 상태: animation_music.json + 음악 재생
-    loadLottieAnimation("animations/animation_music.json");
-    audio.play();
-  
-    // 버튼 클릭 이벤트
-    musicToggleButton.addEventListener("click", () => {
-      if (isPlaying) {
-        // 음악 정지 및 music_start.json으로 전환
-        audio.pause();
-        loadLottieAnimation("animations/music_start.json", false); // 한번만 재생
-        isPlaying = false;
-      } else {
-        // 음악 재생 및 animation_music.json으로 전환
-        audio.play();
-        loadLottieAnimation("animations/animation_music.json");
-        isPlaying = true;
-      }
-    });
-  });
-/** 음악 기능 종료 **/
 
 /** 날짜 공지기능 */
 document.addEventListener("DOMContentLoaded", () => {
@@ -238,7 +274,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // 배경색 전환
   gsap.to("#date-announcement", {
-    backgroundColor: "#FFD1DC",
+    backgroundColor: "rgb(255 236 240)",
     ease: "power1.out",
     duration: 0.5,
     scrollTrigger: {
@@ -324,15 +360,15 @@ const familyData = {
       title: "신랑 측 가족",
       members: [
           { name: "이누리", role: "신랑", phone: "01096001861" },
-          { name: "이기호", role: "아버지", phone: "01023456789" },
-          { name: "이명숙", role: "어머니", phone: "01034567890" },
+          { name: "이기호", role: "아버지", phone: "01044006997" },
+          { name: "이명숙", role: "어머니", phone: "01033991861" },
       ],
   },
   bride: {
       title: "신부 측 가족",
       members: [
-          { name: "정보람", role: "신부", phone: "01087654321" },
-          { name: "임성희", role: "어머니", phone: "01087654333" },
+          { name: "정보람", role: "신부", phone: "01090657177" },
+          { name: "임성희", role: "어머니", phone: "01037909061" },
       ],
   },
 };
@@ -393,25 +429,25 @@ Kakao.init("07fda9cbee6f867b2ea8d1d3724fa72d"); // 카카오 앱 키 입력
 document.getElementById("send-kakao-invite").addEventListener("click", function () {
     Kakao.Link.sendDefault({
         objectType: "feed", // 카톡 메시지 타입: 피드형
-        content: {
+      content: {
             title: "모바일 청첩장", // 제목
             description: "누리와 보라미의 결혼을 축하해주세요! 청첩장을 확인해보세요!", // 설명
-            imageUrl: "https://dldbfl.github.io/weddingInvitation/images/thumnail.jpg", // 청첩장 이미지 URL
-            link: {
+            imageUrl: "https://dldbfl.github.io/weddingInvitation/images/thumbnail.jpg", // 청첩장 이미지 URL
+          link: {
                 mobileWebUrl: "https://dldbfl.github.io/weddingInvitation/", // 모바일 웹 청첩장 링크
                 webUrl: "https://dldbfl.github.io/weddingInvitation/", // 웹 청첩장 링크
-            },
-        },
-        buttons: [
-            {
+          },
+      },
+      buttons: [
+          {
                 title: "청첩장 보기", // 버튼 텍스트
-                link: {
+              link: {
                     mobileWebUrl: "https://dldbfl.github.io/weddingInvitation/",
                     webUrl: "https://dldbfl.github.io/weddingInvitation/",
-                },
-            },
-        ],
-    });
+              },
+          },
+      ],
+  });
 });
 
 const sharedUrl = "https://dldbfl.github.io/weddingInvitation/"; // 청첩장 URL
@@ -422,5 +458,5 @@ document.getElementById("copy-url-button").addEventListener("click", function ()
         alert("청첩장 URL이 복사되었습니다! 문자로 공유해보세요.");
     }).catch(err => {
         console.error("URL 복사 실패: ", err);
-    });
+  });
 });
