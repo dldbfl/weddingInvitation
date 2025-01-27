@@ -114,7 +114,7 @@ function calculateTime() {
     `;
 
     countdownMessage.innerHTML = `
-      누리<span style="color: pink; font-size: 2.5rem;">&nbsp;♥&nbsp;</span>보람 결혼이 <strong>${days}</strong>일 남았습니다!
+      누리<span style="color: pink; font-size: 2.5rem;">&nbsp;♥&nbsp;</span>보람 결혼이 <strong>${days}&nbsp;</strong>일 남았습니다!
     `;
 
   } else {
@@ -162,14 +162,6 @@ function calculateTime() {
     }
   }
 }
-
-// 1초마다 업데이트
-setInterval(calculateTime, 1000);
-
-// 초기 실행
-calculateTime();
-
-
 
 // 1초마다 업데이트
 setInterval(calculateTime, 1000);
@@ -336,7 +328,6 @@ document.querySelectorAll(".pay-button").forEach(button => {
 
 
 /** 연락하기 섹션  */
-// 가족별 데이터
 // 가족별 데이터
 const familyData = {
   groom: {
