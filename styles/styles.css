@@ -1,0 +1,718 @@
+/* 공통 body 스타일 */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    overflow-x: hidden;
+    /* background-color: #f8f9fa; */
+    background-color: #fff9f9;
+}
+
+/* intro 섹션 스타일 */
+.intro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    text-align: center;
+    /* background-color: #fff; */
+    position: relative;
+}
+
+.intro h1 {
+    font-size: 24px;
+    font-weight: 600;
+    margin: 0;
+    padding: 10px;
+    z-index: 10;
+    position: relative;
+}
+
+.intro p {
+    margin: 10px 0;
+    font-size: 16px;
+    color: #333;
+    z-index: 10;
+    position: relative;
+}
+
+.intro .divider {
+    width: 80%;
+    height: 1px;
+    background-color: #333;
+    margin: 15px 0;
+    z-index: 10;
+    position: relative;
+}
+
+
+.intro img {
+    max-width: 90%;
+    height: auto;
+    border-radius: 10px;
+    margin-top: 20px;
+    z-index: 5;
+}
+
+
+.canvas-container {
+    position: relative;
+    display: inline-block;
+    width: 90%; /* 이미지 크기와 동일하게 설정 */
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 5; /* 이미지 위로 캔버스 배치 */
+}
+
+/*section {*/
+/*    min-height: 100vh;*/
+/*    display: flex;*/
+/*    align-items: center;*/
+/*    justify-content: center;*/
+/*    flex-direction: column;*/
+/*}*/
+/* Swiper 및 갤러리 섹션 스타일 */
+#gallery {
+    padding: 20px;
+}
+
+
+header {
+    padding: 20px;
+    background-color: #007bff;
+    color: #fff;
+    border-bottom: 2px solid #0056b3;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+button {
+    padding: 10px 20px;
+    /* margin-top: 10px; */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#countdown-section {
+    margin: 20px 0;
+}
+
+#countdown {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.swiper-slide img {
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 400px;
+    border-radius: 10px;
+}
+
+
+/* 썸네일 그리드 */
+.thumbnail-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.thumbnail-grid img {
+    width: 100%;
+    cursor: pointer;
+    border: 2px solid transparent;
+}
+
+.thumbnail-grid img:hover {
+    border-color: #007bff;
+}
+
+/* QR 코드 섹션 */
+#qr-code-section img {
+    width: 150px;
+    height: 150px;
+}
+
+.custom-pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.custom-pagination button {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: #007bff;
+}
+
+.custom-pagination button:hover {
+    color: #0056b3;
+}
+
+/* 히든 뮤직 섹션 스타일 */
+.hidden-section {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  z-index: 1000;
+}
+
+.music-toggle {
+    background-color: #4a4a4a; /* 초기 버튼 배경색 (회색) */
+    border: none; /* 테두리 제거 */
+    cursor: pointer;
+    padding: 10px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%; /* 원형 버튼 */
+    display: flex;
+    align-items: center; /* 버튼 내부 이미지 수직 중앙 정렬 */
+    justify-content: center; /* 버튼 내부 이미지 수평 중앙 정렬 */
+    outline: none; /* 포커스 테두리 제거 */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 그림자 효과 */
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s; /* 전환 효과 */
+  }
+  
+  .music-toggle:hover {
+    transform: scale(1.1); /* 호버 시 확대 */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); /* 호버 시 그림자 강조 */
+  }
+  
+  .music-toggle:active {
+    transform: scale(1); /* 클릭 시 축소 효과 */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* 클릭 시 그림자 감소 */
+  }
+  
+  .music-toggle.playing {
+    background-color: #2ecc71; /* 음악 재생 상태에서 초록색 */
+  }
+  
+  .music-toggle img {
+    width: 40%; /* 이미지 크기 */
+    height: 40%;
+    pointer-events: none; /* 이미지 클릭 방지 */
+  }
+
+/* 날짜 공지 섹션 스타일 */
+.date-announcement-section {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff9f9;
+    transition: background-color 0.5s ease;
+  }
+  
+  .date-text {
+    text-align: center;
+    opacity: 0; /* 초기 상태 */
+    transform: translateY(50px); /* 초기 상태 */
+    font-family: namuPark, serif;
+  }
+  
+  .reveal-text {
+    font-size: 8rem;
+    color: #9f7fc4;
+  }
+  
+  /** 손글씨 필기 (숫자용) */
+  @font-face {
+    font-family: "Diphylleia";
+    src: url("fonts/Diphylleia-Regular.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  /** 손글씨 필기 (숫자용) */
+  @font-face {
+    font-family: "namuPark";
+    src: url("fonts/나눔손글씨\ 나무정원.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  /** 손글씨 정자 (한글용) */
+  @font-face {
+    font-family: "sehwa";
+    src: url("fonts/나눔손글씨\ 세화체.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  /** 달력 섹션 **/
+  .calendar-section {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 5rem 1rem;
+    background-color: #fff9f9; /* 배경색 */
+  }
+  
+  .calendar-title {
+    font-family: Diphylleia, serif;
+    font-size: 3.5rem;
+    font-weight: normal;
+    text-align: center;
+    color: #111;
+    margin-bottom: 3rem;
+  }
+  .calendar-date {
+    font-size: 1.25rem;
+    color: #666;
+    text-align: center;    
+  }
+
+  #calender-first-word {
+    font-size: 2.25rem;
+    font-family: sehwa;
+  }
+
+  #calender-second-word {
+    font-size: 1.25rem;
+    font-family: Diphylleia;
+    opacity: 46%;
+  }
+  
+  .calendar-table {
+    width: 100%;
+    max-width: 600px;
+    border-collapse: collapse;
+    text-align: center;
+  }
+  
+  .calendar-table th, .calendar-table td {
+    /* border: 1px solid #ddd; */
+    width: 14.28%;
+    height: 3rem;
+    font-size: 1.2rem;
+    vertical-align: middle;
+  }
+  
+  .calendar-table th {
+    font-weight: bold;
+  }
+  
+  .calendar-table td {
+    font-family: Diphylleia, sans-serif;
+    font-size: 1rem;
+    color: #111;
+  }
+  
+  .calendar-table td.highlight {
+    background-color: #FFD1DC; /* 강조 색상 */
+    color: #fff;
+    border-radius: 50%;
+    font-weight: bold;
+  }
+  
+  .countdown-container {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+    width: 100%;
+  }
+  
+  .countdown-box {
+    width: 80px;
+    height: 80px;
+    background-color: #fff;
+    border-radius: 25px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .countdown-box .countdown-value {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .countdown-box .countdown-label {
+    font-size: 0.875rem;
+    color: #999;
+    text-transform: uppercase;
+    margin-top: 0.25rem;
+  }
+  
+  .countdown-message {
+    text-align: center;
+    font-size: 1.7em;
+    color: #333;
+    margin-top: 1rem;
+    font-family: sehwa;
+  }
+
+  
+  .calendar-line {
+    border-top: 1px solid #ddd; /* 회색 선 */
+    width: 100%;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+
+
+/* 연락하기 섹션 */
+.contact-section {
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0rem 2rem;
+    background-color: #fff9f9;
+}
+
+/* 가족 박스 */
+.family-box {
+    background-color: #f5caca6b;
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 400px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    margin-bottom: 15px;
+}
+
+.family-box .family-row {
+    display: flex;
+    justify-content: space-between; /* 텍스트를 양쪽으로 정렬 */
+    align-items: center; /* 세로 가운데 정렬 */
+    flex-direction: column; /* 세로로 정렬 */
+    margin: 10px 0;
+}
+
+.family-box .family-row p {
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.5;
+    text-align: left; /* 텍스트 왼쪽 정렬 */
+}
+
+.family-box .relation {
+    margin-left: 5px;
+    font-size: 14px;
+    color: #555;
+}
+
+.family-box .role {
+    font-weight: bold;
+    color: #666;
+}
+
+.family-box .name {
+    font-weight: bold;
+    color: #333;
+    margin-left: 10px; /* 역할과 이름 사이 간격 */
+}
+
+/* 모달 스타일 */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 500px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#family-list {
+    margin-top: 20px;
+    text-align: left;
+}
+
+.family-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.family-row:last-child {
+    border-bottom: none;
+}
+
+.family-row span {
+    font-size: 16px;
+    color: #555;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.action-button {
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.call-button {
+    background-color: #4a4a4a;
+    color: white;
+    border: none;
+}
+
+.call-button:hover {
+    background-color: #333;
+}
+
+.sms-button {
+    background-color: #f7c6c6;
+    color: white;
+    border: none;
+}
+
+.sms-button:hover {
+    background-color: #f3a9a9;
+}
+
+
+
+
+
+
+
+  .gallery-title {
+    font-family: Diphylleia, serif;
+    font-size: 3.5rem;
+    font-weight: normal;
+    text-align: center;
+    color: #111;
+    margin-bottom: 3rem;
+  }
+
+  .account-section {
+    padding: 20px;
+    border-radius: 10px;
+  }
+  
+  .account-section h2 {
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  
+  .account-section p {
+    text-align: center;
+    color: #666;
+    margin-bottom: 20px;
+  }
+  
+  .accordion-button {
+    width: 100%;
+    padding: 10px;
+    text-align: left;
+    border: none;
+    color: black;
+    background-color: #fff;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    color: black;
+    font-family: sehwa, sans-serif;
+    font-size: 1.50em;
+  }
+  
+  .accordion-content {
+    display: none;
+    padding: 10px;
+    background-color: #ffe8e8;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+  
+  .account-info {
+    margin-bottom: 10px;
+    background-color: #f8f8f8;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    border-radius: 10px;
+  }
+  
+  .bank-info {
+    font-size: 0.9em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* background-color: #f1f1f1; */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 5px;
+    border-radius: 10px;
+    margin-top: 10px;
+  }
+  
+  .copy-button,
+  .pay-button {
+    background-color: #a0a0a0b5;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 5px 5px;
+    cursor: pointer;
+  }
+  
+  .pay-button {
+    background-color: #ffe500;
+  }
+
+    /* Toast 기본 스타일 */
+  .toast {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* 텍스트 수평 가운데 정렬 */
+    background-color: #fff;
+    color: #333;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 10px 20px;
+    margin: 0 auto; /* 수평 정렬 */
+    font-size: 14px;
+    position: fixed;
+    bottom: 20px; /* 화면 아래에 위치 */
+    left: 50%; /* 화면 가운데 정렬 */
+    transform: translateX(-50%); /* 가운데 정렬 보정 */
+    opacity: 0;
+    width: auto; /* 가로 길이 자동 조정 */
+    white-space: nowrap; /* 텍스트 줄바꿈 방지 */
+    animation: slideInUp 3s ease-in-out forwards;
+    text-align: center; /* 텍스트 정렬 */
+  }
+
+  /* 위로 나타나는 애니메이션 */
+  @keyframes slideInUp {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, 100px); /* 아래쪽에서 시작 */
+    }
+    10%, 90% {
+        opacity: 1;
+        transform: translate(-50%, 0); /* 중앙에 도달 */
+    }
+    100% {
+        opacity: 1;
+        transform: translate(-50%, 0); /* 유지 */
+    }
+  }
+
+/* 아래로 사라지는 애니메이션 */
+@keyframes slideOutDown {
+    0% {
+        opacity: 1;
+        transform: translate(-50%, 0); /* 중앙에 위치 */
+    }
+    100% {
+        opacity: 0;
+        transform: translate(-50%, 100px); /* 아래로 사라짐 */
+    }
+}
+
+  .toast-container {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+  }
+
+
+  .kakao-share-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.kakao-share-button {
+    background-color: #ffe812;
+    color: #333;
+    border: none;
+    padding: 15px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 25px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    width: 80%;
+    max-width: 400px;
+}
+
+.kakao-share-button:hover {
+    background-color: #ffd600;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+.kakao-share-button .arrow {
+    font-size: 18px;
+    color: #333;
+    transform: translateX(0);
+    transition: transform 0.3s ease;
+}
+
+.kakao-share-button:hover .arrow {
+    transform: translateX(5px);
+}

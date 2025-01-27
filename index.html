@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>모바일 청첩장</title>
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="styles/swiper-bundle.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.9.6/lottie.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+    
+</head>
+<body>
+    <!-- 최상단에 음악 토글용 히든 섹션 추가 -->
+    <section id="hidden-music-control" class="hidden-section">
+        <button id="music-toggle" class="music-toggle">
+            <div id="lottie-animation" class="lottie-container"></div>
+        </button>
+        <audio id="background-music" loop>
+            <source src="audio/Libertango.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+    </section>
+
+    <!-- 첫장 흔들리는 꽃들속에 샴푸향 뭐시기 세션 -->
+    <section id="intro" class="intro-section">
+        <div class="intro">
+            <h1>LEE NURI & BORAMIKKONG</h1>
+            <div class="divider"></div>
+            <p>좋은날 좋은순간</p>
+            <p>저기 멀리</p>
+            <div class="canvas-container">
+                <img src="images/JYS_5815 마트4-1.jpg" alt="배경 이미지">
+                <canvas></canvas>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- 날짜 공지 섹션 -->
+    <section id="date-announcement" class="date-announcement-section">
+        <div id="date-text" class="date-text">
+          <!-- 첫 번째 줄 -->
+          <div class="flex justify-center items-center gap-5">
+            <span class="reveal-text" style="color: palevioletred;">2</span>
+            <span class="reveal-text">.&nbsp;</span>
+            <span class="reveal-text" style="color: palevioletred;">2</span>
+            <span class="reveal-text">5</span>
+            <span class="reveal-text">.</span>
+          </div>
+          <!-- 두 번째 줄 -->
+          <div class="flex justify-center items-center gap-5">
+            <span class="reveal-text" style="color: palevioletred;">2</span>
+            <span class="reveal-text">0</span>
+            <span class="reveal-text" style="color: palevioletred;">2</span>
+            <span class="reveal-text">5</span>
+            <span class="reveal-text">.</span>
+          </div>
+        </div>
+      </section>
+
+    <!-- 달력 섹션 (카운트 섹션) -->
+    <section class="calendar-section">
+        <h2 class="calendar-title">Wedding Day</h2>
+        <p id="calender-first-word" class="calendar-date" >2025년 2월 25일 화요일</p>
+        <p id="calender-second-word" class="calendar-date" >Tuesday, February 25, 2025 </p>
+        <hr class="calendar-line" />
+        <table class="calendar-table">
+          <thead>
+            <tr>
+              <th style="color: red;">일</th>
+              <th>월</th>
+              <th>화</th>
+              <th>수</th>
+              <th>목</th>
+              <th>금</th>
+              <th style="color: blue;">토</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td>1</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>3</td>
+              <td>4</td>
+              <td>5</td>
+              <td>6</td>
+              <td>7</td>
+              <td>8</td>
+            </tr>
+            <tr>
+              <td>9</td>
+              <td>10</td>
+              <td>11</td>
+              <td>12</td>
+              <td>13</td>
+              <td>14</td>
+              <td>15</td>
+            </tr>
+            <tr>
+              <td>16</td>
+              <td>17</td>
+              <td>18</td>
+              <td>19</td>
+              <td>20</td>
+              <td>21</td>
+              <td>22</td>
+            </tr>
+            <tr>
+              <td>23</td>
+              <td>24</td>
+              <td class="highlight">25</td>
+              <td>26</td>
+              <td>27</td>
+              <td>28</td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+        <hr class="calendar-line" />  
+        <div class="countdown-container" id="countdown-container">
+            <!-- 카운트다운 시간이 표시될 영역 -->
+        </div>
+        <p id="countdown-message" class="countdown-message"></p>
+      </section>
+
+
+    <!-- 연락하기 섹션 -->
+    <section class="contact-section">
+        <h2 style="font-family: 'sehwa'; font-size: 2.8em;">연락처 확인하기</h2>
+        <div class="family-box groom" id="groom-box">
+            <div class="family-row">
+                <p><strong>이기호 · 이명숙</strong> <span class="relation">의 아들</span></p>
+                <p><span class="role">신랑</span> <span class="name">이누리</span></p>
+                <!-- 축하 연락하기 버튼 -->
+                <div class="contact-button-container">
+                    <button class="contact-button">
+                        축하 연락하기
+                        <span class="arrow">➔</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="family-box bride" id="bride-box">
+            <div class="family-row">
+                <p><strong>임성희</strong> <span class="relation">의 딸</span></p>
+                <p><span class="role">신부</span> <span class="name">정보람</span></p>
+                <!-- 축하 연락하기 버튼 -->
+                <div class="contact-button-container">
+                    <button class="contact-button">
+                        축하 연락하기
+                        <span class="arrow">➔</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    
+        <!-- 모달 -->
+        <div id="modal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h3 id="modal-title"></h3>
+                <div id="family-list"></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery">
+        <h2 class="gallery-title">Gallery</h2>
+        <div class="swiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img src="images/JYS_6207-1.jpg" alt="Photo 1"></div>
+                <div class="swiper-slide"><img src="images/JYS_6381-1.jpg" alt="Photo 2"></div>
+                <div class="swiper-slide"><img src="images/JYS_5815 마트4-1.jpg" alt="Photo 3"></div>
+                <div class="swiper-slide"><img src="images/JYS_6547-1.jpg" alt="Photo 4"></div>
+            <div class="swiper-slide"><img src="images/JYS_6572-1.jpg" alt="Photo 5"></div>
+            <div class="swiper-slide"><img src="images/JYS_6580-1.jpg" alt="Photo 6"></div>
+            <div class="swiper-slide"><img src="images/JYS_6658-1.jpg" alt="Photo 7"></div>
+            <div class="swiper-slide"><img src="images/JYS_7091-1 q.jpg" alt="Photo 8"></div>
+            <div class="swiper-slide"><img src="images/JYS_7015-1.jpg" alt="Photo 9"></div>
+            <div class="swiper-slide"><img src="images/JYS_6396-1 q.jpg" alt="Photo 10"></div>
+        </div>
+        <div class="custom-pagination">
+            <button class="prev-slide">&lt;</button>
+            <span id="current-slide">1</span> / <span id="total-slides">5</span>
+            <button class="next-slide">&gt;</button>
+        </div>
+        </div>
+        <div class="thumbnail-grid">
+            <img src="images/JYS_6207-1.jpg" alt="Thumbnail 1" data-index="0">
+            <img src="images/JYS_6381-1.jpg" alt="Thumbnail 2" data-index="1">
+            <img src="images/JYS_5815 마트4-1.jpg" alt="Thumbnail 3" data-index="2">
+            <img src="images/JYS_6547-1.jpg" alt="Thumbnail 4" data-index="3">
+            <img src="images/JYS_6572-1.jpg" alt="Thumbnail 5" data-index="4">
+            <img src="images/JYS_6580-1.jpg" alt="Thumbnail 6" data-index="5">
+            <img src="images/JYS_6658-1.jpg" alt="Thumbnail 7" data-index="6">
+            <img src="images/JYS_7091-1 q.jpg" alt="Thumbnail 8" data-index="7">
+            <img src="images/JYS_7015-1.jpg" alt="Thumbnail 9" data-index="8">
+            <img src="images/JYS_6396-1 q.jpg" alt="Thumbnail 10" data-index="9">
+        </div>
+    </section>
+
+    <section id="account-section" class="account-section">
+        <h2 style="font-family: 'sehwa'; font-size: 2.8em;">마음 전하실 곳</h2>
+        <p>아이고 감삼다 뭘 이런걸다...</p>
+        <div class="accordion">
+          <!-- 신랑측 -->
+          <button class="accordion-button" aria-expanded="false">신랑측에게</button>
+          <div class="accordion-content">
+            <div class="account-info">
+              <div class="account-holder">
+                    <span>신랑</span>
+                    <span>이누리</span>
+                </div>
+                <div class="bank-info">
+                    <span>농협 302-9600-1861-11</span>
+                    <span>
+                        <button class="copy-button">복사</button>
+                        <button class="pay-button" data-url="https://qr.kakaopay.com/281006011000036362723861">💬pay</button>
+                    </span>
+                </div>
+            </div>
+            <div class="account-info">
+                <div class="account-holder">
+                    <span>신랑 아버지</span>
+                    <span>이기호</span>
+                </div>
+                <div class="bank-info">
+                    <span>농협 403-12-157200</span>
+                    <span>
+                        <button class="copy-button">복사</button>
+                        <button class="pay-button">💬pay</button>
+                    </span>
+                </div>
+            </div>
+            <div class="account-info">
+                <div class="account-holder">
+                    <span>신랑 어머니</span>
+                    <span>이명숙</span>
+                </div>
+                <div class="bank-info">
+                    <span>농협 444-02-021522</span>
+                    <span>
+                        <button class="copy-button">복사</button>
+                        <button class="pay-button">💬pay</button>
+                    </span>
+                </div>
+            </div>
+        </div>
+          <!-- 신부측 -->
+          <button class="accordion-button">신부측에게</button>
+          <div class="accordion-content">
+            <div class="account-info">
+                <div class="account-holder">
+                    <span>신부</span>
+                    <span>정보람</span>
+                </div>
+                <div class="bank-info">
+                    <span>신부꺼 302-9600-1861-11</span>
+                    <span>
+                        <button class="copy-button">복사</button>
+                        <button class="pay-button">💬pay</button>
+                    </span>
+                </div>
+            </div>
+            <div class="account-info">
+                <div class="account-holder">
+                    <span>신부 어머니</span>
+                    <span>임성희</span>
+                </div>
+                <div class="bank-info">
+                    <span>농협 302-9600-1861-11</span>
+                    <span>
+                        <button class="copy-button">복사</button>
+                        <button class="pay-button">💬pay</button>
+                    </span>
+                </div>
+            </div>
+          </div>         
+      </section>
+
+    <section id="last-section">
+        <div class="kakao-share-container">
+            <button class="kakao-share-button send-button">
+                카카오톡으로 청첩장 전하기
+                <span class="arrow">➔</span>
+            </button>
+        </div>
+    </section>
+
+    <script src="scripts/swiper-bundle.min.js"></script>
+    <script src="scripts/gallery.js"></script>
+    <script src="scripts/scripts.js"></script>
+
+    <!-- Toast Container -->
+    <div id="toast-container" class="toast-container"></div>
+</body>
+</html>
