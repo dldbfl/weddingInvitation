@@ -1,25 +1,15 @@
-/* 공통 body 스타일 */
-body, html {
-    margin: 0;
-    padding: 0;
-    font-family: 'Arial', sans-serif;
-    overflow-x: hidden;
-    /* background-color: #f8f9fa; */
-    background-color: #fff9f9;
-}
-
 /** 손글씨 필기 (숫자용) */
 @font-face {
-  font-family: "Diphylleia";
-  src: url("fonts/Diphylleia-Regular.ttf") format("truetype");
+  font-family: "namuPark";
+  src: url("fonts/나눔손글씨\ 나무정원.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 
 /** 손글씨 필기 (숫자용) */
 @font-face {
-  font-family: "namuPark";
-  src: url("fonts/나눔손글씨\ 나무정원.ttf") format("truetype");
+  font-family: "Diphylleia";
+  src: url("fonts/Diphylleia-Regular.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
@@ -46,6 +36,16 @@ body, html {
   src: url('fonts/SejongGeulggot.ttf') format('woff');
   font-weight: normal;
   font-style: normal;
+}
+
+/* 공통 body 스타일 */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    overflow-x: hidden;
+    /* background-color: #f8f9fa; */
+    background-color: #fff9f9;
 }
 
 /* 전체 화면을 덮는 검은색 투명 배경 */
@@ -115,7 +115,7 @@ body, html {
 .intro .divider {
     width: 80%;
     height: 1px;
-    background-color: #333;
+    background-color: hsl(0deg 0% 73.39%);
     margin: 15px 0;
     z-index: 10;
     position: relative;
@@ -127,6 +127,24 @@ body, html {
     border-radius: 10px;
     margin-top: 20px;
     z-index: 5;
+}
+
+.outro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  text-align: center;
+  position: relative;
+}
+
+.outro img {
+  max-width: 90%;
+  height: auto;
+  border-radius: 10px;
+  margin-top: 20px;
+  z-index: 5;
 }
 
 .canvas-container {
@@ -299,13 +317,14 @@ header h1 {
     width: 100%; /* 이미지 크기 */
     height: 100%;
 }
-/* 날짜 공지 섹션 스타일 */
-.date-announcement-section {
+
+  /* 날짜 공지 섹션 스타일 */
+  .date-announcement-section {
     min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #fff9f9;
+    background-color: #fff6f6;
     transition: background-color 0.5s ease;
   }
   
@@ -641,13 +660,20 @@ header h1 {
   }
 
   .account-section {
-    padding: 20px;
-    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px; /* 요소 간 간격 */
+    min-height: 50vh;
+    background-color: rgb(255, 244, 241);
+    padding-bottom: 20px; /* 아래쪽 패딩 추가 */
+    transition: padding 0.3s ease; /* 패딩 변경 시 부드럽게 처리 */
   }
   
   .account-section h2 {
     text-align: center;
     margin-bottom: 10px;
+    padding: 15%;
   }
   
   .account-section p {
@@ -656,27 +682,29 @@ header h1 {
     margin-bottom: 20px;
   }
   
-  .accordion-button {
-    width: 100%;
-    padding: 10px;
-    text-align: left;
-    border: none;
-    color: black;
-    background-color: #fff;
-    border-radius: 5px;
-    margin-bottom: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    color: black;
-    font-family: sehwa, sans-serif;
-    font-size: 1.50em;
-  }
-  
   .accordion-content {
-    display: none;
-    padding: 10px;
-    background-color: #ffe8e8;
-    border-radius: 5px;
-    margin-bottom: 10px;
+      max-height: 0; /* 처음에는 닫힌 상태 */
+      overflow: hidden; /* 내용이 튀어나오지 않도록 숨김 */
+      transition: max-height 0.3s ease; /* 부드럽게 열고 닫히는 효과 */
+      padding: 0 10px; /* 패딩 추가 */
+  }
+
+  .accordion-content.open {
+      max-height: 200px; /* 최대 높이 설정 (필요 시 조정) */
+      padding: 10px 10px; /* 열릴 때 패딩 추가 */
+  }
+
+  .accordion-button {
+      width: 100%;
+      margin-bottom: 10px;
+      background-color: hwb(0 83% 1%); /* 버튼 색상 */
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s ease;
   }
   
   .account-info {

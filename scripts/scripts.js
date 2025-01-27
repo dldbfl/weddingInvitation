@@ -82,6 +82,42 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
     /** 음악 기능 종료 **/
+
+    // 마음전하는곳 버튼 이벤트
+    document.querySelectorAll('.accordion-button').forEach(toggle => {
+        toggle.addEventListener('click', function () {
+            
+          const allContent = document.querySelectorAll('.accordion-content');
+            const section = document.querySelector('.accordion-section');
+
+            allContent.forEach(content => {
+                if (content !== this.nextElementSibling) {
+                    content.style.maxHeight = '0';
+                    content.style.padding = '0 10px';
+                    content.classList.remove('open');
+                }
+            });
+    
+            const content = this.nextElementSibling;
+            if (content.classList.contains('open')) {
+                content.classList.remove('open');
+                content.style.maxHeight = '0';
+                content.style.padding = '0 10px';
+                section.style.height = 'auto'; // section 높이 초기화
+                section.style.marginBottom = '20px'; // 여유 공간 추가
+            } else {
+                content.classList.add('open');
+                content.style.maxHeight = content.scrollHeight + 'px';
+                content.style.padding = '10px 10px';
+                section.style.height = 'auto'; // section 높이 초기화
+                section.style.marginBottom = '70px'; // 여유 공간 추가
+            }
+        });
+    });
+
+    button.addEventListener('click', (event) => {
+        event.stopPropagation(); // 클릭 이벤트가 부모로 전달되지 않음
+    });
 });
 
 // 카운트다운 기능
@@ -263,71 +299,55 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 document.addEventListener("DOMContentLoaded", () => {
-  const accordionButtons = document.querySelectorAll(".accordion-button");
+  // 복사 버튼 동작
+  // Toast 메시지 표시 함수
+  function showToast(message) {
+    const toastContainer = document.getElementById("toast-container");
 
-  accordionButtons.forEach(button => {
-    button.addEventListener("click", () => {
-      const content = button.nextElementSibling;
-      const isOpen = content.style.display === "block";
-  
-      // 다른 열려 있는 아코디언 닫기
-      document.querySelectorAll(".accordion-content").forEach(item => {
-        if (item !== content) item.style.display = "none";
-      });
-  
-      // 현재 아코디언 열기/닫기
-      content.style.display = isOpen ? "none" : "block";
-    });
-  });
+    // 새 Toast 메시지 생성
+    const toast = document.createElement("div");
+    toast.classList.add("toast");
+    toast.innerHTML = `
+      <span class="toast-icon">✔&nbsp;</span>
+      <span>${message}</span>
+    `;
 
-// 복사 버튼 동작
-// Toast 메시지 표시 함수
-function showToast(message) {
-  const toastContainer = document.getElementById("toast-container");
+    // Toast 메시지 컨테이너에 추가
+    toastContainer.appendChild(toast);
 
-  // 새 Toast 메시지 생성
-  const toast = document.createElement("div");
-  toast.classList.add("toast");
-  toast.innerHTML = `
-    <span class="toast-icon">✔&nbsp;</span>
-    <span>${message}</span>
-  `;
-
-  // Toast 메시지 컨테이너에 추가
-  toastContainer.appendChild(toast);
-
-  // 3초 후 메시지 투명도 감소 및 아래로 이동
-  setTimeout(() => {
-    toast.style.animation = "slideOutDown 3s forwards";
-    // 3.5초 후 메시지 완전히 제거
+    // 3초 후 메시지 투명도 감소 및 아래로 이동
     setTimeout(() => {
-      toast.remove();
+      toast.style.animation = "slideOutDown 3s forwards";
+      // 3.5초 후 메시지 완전히 제거
+      setTimeout(() => {
+        toast.remove();
+      }, 2000);
     }, 2000);
-  }, 2000);
-}
+  }
 
-// 복사 버튼 동작
-document.querySelectorAll(".copy-button").forEach(button => {
-  button.addEventListener("click", (e) => {
-    // 부모 요소인 `.bank-info`를 찾아 해당 텍스트를 복사
-    const bankInfo = e.target.closest(".bank-info").querySelector("span:first-child").textContent;
-    navigator.clipboard.writeText(bankInfo).then(() => {
-      showToast("계좌번호가 복사되었습니다.");
+  // 복사 버튼 동작
+  document.querySelectorAll(".copy-button").forEach(button => {
+    button.addEventListener("click", (e) => {
+      // 부모 요소인 `.bank-info`를 찾아 해당 텍스트를 복사
+      const bankInfo = e.target.closest(".bank-info").querySelector("span:first-child").textContent;
+      navigator.clipboard.writeText(bankInfo).then(() => {
+        showToast("계좌번호가 복사되었습니다.");
+      });
     });
   });
-});
 
-// 버튼 클릭 이벤트 처리
-document.querySelectorAll(".pay-button").forEach(button => {
-  button.addEventListener("click", () => {
-    const paymentUrl = button.getAttribute("data-url"); // 버튼의 data-url 속성에서 URL 가져오기
-    window.open(paymentUrl, "_blank"); // 송금 URL로 새 창 열기
+  // 버튼 클릭 이벤트 처리
+  document.querySelectorAll(".pay-button").forEach(button => {
+    button.addEventListener("click", () => {
+      const paymentUrl = button.getAttribute("data-url"); // 버튼의 data-url 속성에서 URL 가져오기
+      window.open(paymentUrl, "_blank"); // 송금 URL로 새 창 열기
+    });
   });
-});
 });
 
 
 /** 연락하기 섹션  */
+// 가족별 데이터
 // 가족별 데이터
 const familyData = {
   groom: {
