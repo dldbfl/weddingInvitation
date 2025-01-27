@@ -389,28 +389,27 @@ window.addEventListener("click", event => {
 // 카카오 공유하기 버튼 동작
 Kakao.init("07fda9cbee6f867b2ea8d1d3724fa72d"); // 카카오 앱 키 입력
 
-document.querySelectorAll(".send-button").forEach(button => {
-  button.addEventListener("click", () => {
+// 버튼 이벤트
+document.getElementById("send-kakao-invite").addEventListener("click", function () {
     Kakao.Link.sendDefault({
-      objectType: "feed",
-      content: {
-          title: "모바일 청첩장",
-          description: "LEE NURI & BORAMIKKONG의 결혼을 축하해주세요.",
-          imageUrl: "https://example.com/large-photo.jpg",
-          link: {
-              mobileWebUrl: "https://kakaopay.example.com", 
-              webUrl: "https://kakaopay.example.com",
-          },
-      },
-      buttons: [
-          {
-              title: "청첩장 보기",
-              link: {
-                  mobileWebUrl: "https://kakaopay.example.com",
-                  webUrl: "https://kakaopay.example.com",
-              },
-          },
-      ],
-  });
-  });
+        objectType: "feed", // 카톡 메시지 타입: 피드형
+        content: {
+            title: "모바일 청첩장", // 제목
+            description: "누리와 보라미의 결혼을 축하해주세요! 청첩장을 확인해보세요!", // 설명
+            imageUrl: "https://dldbfl.github.io/weddingInvitation/images/JYS_5815%20%EB%A7%88%ED%8A%B84-1.jpg", // 청첩장 이미지 URL
+            link: {
+                mobileWebUrl: "https://dldbfl.github.io/weddingInvitation/", // 모바일 웹 청첩장 링크
+                webUrl: "https://dldbfl.github.io/weddingInvitation/", // 웹 청첩장 링크
+            },
+        },
+        buttons: [
+            {
+                title: "청첩장 보기", // 버튼 텍스트
+                link: {
+                    mobileWebUrl: "https://dldbfl.github.io/weddingInvitation/",
+                    webUrl: "https://dldbfl.github.io/weddingInvitation/",
+                },
+            },
+        ],
+    });
 });
