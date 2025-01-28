@@ -665,7 +665,7 @@ header h1 {
     align-items: center;
     gap: 10px; /* 요소 간 간격 */
     min-height: 50vh;
-    background-color: rgb(255, 244, 241);
+    background-color: rgb(255 242 245);
     padding-bottom: 20px; /* 아래쪽 패딩 추가 */
     transition: padding 0.3s ease; /* 패딩 변경 시 부드럽게 처리 */
   }
@@ -697,13 +697,15 @@ header h1 {
   .accordion-button {
       width: 100%;
       margin-bottom: 10px;
-      background-color: hwb(0 83% 1%); /* 버튼 색상 */
-      color: white;
+      background-color: hwb(0deg 86.55% 0%); /* 버튼 색상 */
+      color: #6f53a1;
       border: none;
       padding: 10px 20px;
       border-radius: 5px;
       cursor: pointer;
-      font-size: 16px;
+      font-family: 'GowunDodum-Regular';
+      font-size: 18px;
+      font-weight: bold;
       transition: background-color 0.3s ease;
   }
   
